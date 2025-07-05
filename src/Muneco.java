@@ -32,9 +32,9 @@ public class Muneco {
     }
 
     public void mostrar() {
-        System.out.println(" -----");
+        System.out.println(" -------");
         System.out.print  ("  |   ");
-        if (cabeza) System.out.println("O");
+        if (cabeza) System.out.println(" O");
         else System.out.println();
 
         System.out.print("  |   ");
@@ -45,7 +45,7 @@ public class Muneco {
         } else if (brazoDerecho && torso) {
             System.out.println("|\\");
         } else if (torso) {
-            System.out.println("|");
+            System.out.println(" |");
         } else {
             System.out.println();
         }
