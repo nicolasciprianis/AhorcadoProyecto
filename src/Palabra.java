@@ -5,7 +5,7 @@ public class Palabra {
     private char[] progreso;
 
     public Palabra() {
-        String[] palabras = {"Lenguaje", "Zona", "Panda", "Orden", "Verano", "Apostador", "Cordero", "Pez", "Completo", "Hora", "Actor", "Contar"};
+        String[] palabras = {"Lenguaje", "Zona", "Panda", "Orden", "Verano", "Apostador", "Cordero", "Pez", "Completo", "Hora", "Actor", "Contar" , "Jhonatna"};
         Random rand = new Random();
         palabraSecreta = palabras[rand.nextInt(palabras.length)].toUpperCase();
         progreso = new char[palabraSecreta.length()];
