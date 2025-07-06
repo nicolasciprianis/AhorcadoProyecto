@@ -6,6 +6,7 @@ public class JuegoAhorcado {
     private char[] letrasUsadas;
     private int letrasContadas;
     private Scanner entrada;
+    private int vidas;
 
     public JuegoAhorcado() {
         palabra = new Palabra();
@@ -13,11 +14,13 @@ public class JuegoAhorcado {
         letrasUsadas = new char[30];
         letrasContadas = 0;
         entrada = new Scanner(System.in);
+        vidas = 6;
     }
 
     public void iniciar() {
         System.out.println("\n=== Ahorcado ===");
         System.out.println("La palabra secreta tiene " + palabra.getLongitud() + " letras.");
+        System.out.println("Tienes 6 vidas");
 
         while (!muneco.estaCompleto() && !palabra.estaCompleta()) {
             System.out.println("\n\nPalabra: " + String.valueOf(palabra.getProgreso()));
@@ -46,8 +49,11 @@ public class JuegoAhorcado {
             if (!palabra.validarLetra(letra)) {
                 System.out.println("Letra incorrecta.");
                 muneco.agregarParte();
+                vidas--;
+                System.out.println("Vidas = " + vidas);
             } else {
                 System.out.println("¡Bien! Letra correcta.");
+                System.out.println("Vidas = " + vidas);
             }
         }
 
