@@ -5,7 +5,7 @@ public class Palabra {
     private char[] progreso;
 
     public Palabra() {
-        String[] palabras = {"Lenguaje", "Zona", "Panda", "Orden", "Verano", "Apostador", "Cordero", "Pez", "Completo", "Hora", "Actor", "Contar" , "Jhonatna"};
+        String[] palabras = {"Lenguaje", "Zona", "Panda", "Orden", "Verano", "Apostador", "Cordero", "Pez", "Completo", "Hora", "Actor", "Contar" , "Persona" , "Juego" , "Cafe"};
         Random rand = new Random();
         palabraSecreta = palabras[rand.nextInt(palabras.length)].toUpperCase();
         progreso = new char[palabraSecreta.length()];
@@ -33,11 +33,11 @@ public class Palabra {
         return acierto;
     }
 
-    public boolean estaCompleta() {
+    public boolean laPalabraEstaCompleta() {
         return new String(progreso).equals(palabraSecreta);
     }
 
-    public int getLongitud() {
+    public int mostrarLongitudPalabraSecreta() {
         return palabraSecreta.length();
     }
 }

@@ -17,29 +17,31 @@ public class JuegoAhorcado {
         vidas = 6;
     }
 
-    public void iniciar() {
-        System.out.println("\n=== Ahorcado ===");
-        System.out.println("La palabra secreta tiene " + palabra.getLongitud() + " letras.");
-        System.out.println("Tienes 6 vidas");
+    public void iniciarElJuego() {
+        System.out.println("\n=== AHORCADO ===");
+        System.out.println("LA PALABRA SECRETA TIENE " + palabra.mostrarLongitudPalabraSecreta() + " LETRAS");
+        System.out.println("EMPIEZAS CON 6 VIDAS");
+        System.out.println("BUENA SUERTE!");
 
-        while (!muneco.estaCompleto() && !palabra.estaCompleta()) {
-            System.out.println("\n\nPalabra: " + String.valueOf(palabra.getProgreso()));
-            System.out.print("Letras usadas: ");
+        while (!muneco.munecoEstaCompleto() && !palabra.laPalabraEstaCompleta()) {
+            System.out.println("\nPALABRA: " + String.valueOf(palabra.getProgreso()));
+            System.out.print("LETRAS USADAS: ");
             mostrarLetrasUsadas();
-            muneco.mostrar();
+            muneco.mostrarMuneco();
 
-            System.out.print("Ingresa una letra: ");
+            System.out.print("INGRESE UNA LETRA: ");
             String input = entrada.nextLine().toUpperCase();
 
             if (input.length() != 1 || !Character.isLetter(input.charAt(0))) {
-                System.out.println("Entrada inválida. Ingresa una sola letra.");
+                System.err.println("ENTRADA INVALIDA. INGRESE UNA LETRA");
+                System.out.println();
                 continue;
             }
 
             char letra = input.charAt(0);
 
-            if (yaUsada(letra)) {
-                System.out.println("Ya usaste esa letra.");
+            if (letraYaUsada(letra)) {
+                System.out.println("YA USASTE ESTA LETRA. INTENTA DE NUEVO");
                 continue;
             }
 
@@ -47,28 +49,30 @@ public class JuegoAhorcado {
             letrasContadas++;
 
             if (!palabra.validarLetra(letra)) {
-                System.out.println("Letra incorrecta.");
-                muneco.agregarParte();
+                System.out.println("LETRA INCORRECTA");
+                muneco.agregarPartesAlMuneco();
                 vidas--;
                 System.out.println("Vidas = " + vidas);
+                System.out.println("----------------------------");
             } else {
-                System.out.println("¡Bien! Letra correcta.");
+                System.out.println("¡BIEN! LETRA CORRRECTA");
                 System.out.println("Vidas = " + vidas);
+                System.out.println("----------------------------");
             }
         }
 
-        if (palabra.estaCompleta()) {
-            System.out.println("\n¡Felicidades! Adivinaste la palabra: " + palabra.getPalabraSecreta());
+        if (palabra.laPalabraEstaCompleta()) {
+            System.out.println("\n¡FELICIDADES! ADIVINASTE LA PALABRA. ERA: " + palabra.getPalabraSecreta());
         } else {
             System.out.println();
-            muneco.mostrar();
-            System.out.println("\n¡Perdiste! La palabra era: " + palabra.getPalabraSecreta());
+            muneco.mostrarMuneco();
+            System.out.println("\n¡PERDISTE! LA PALABRA ERA: " + palabra.getPalabraSecreta());
         }
 
         entrada.close();
     }
 
-    private boolean yaUsada(char letra) {
+    private boolean letraYaUsada(char letra) {
         for (int i = 0; i < letrasContadas; i++) {
             if (letrasUsadas[i] == letra) {
                 return true;

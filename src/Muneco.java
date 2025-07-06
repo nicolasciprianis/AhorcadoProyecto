@@ -15,7 +15,7 @@ public class Muneco {
         piernaIzquierda = false;
     }
 
-    public void agregarParte() {
+    public void agregarPartesAlMuneco() {
         if (!cabeza) {
             cabeza = true;
         } else if (!torso) {
@@ -31,7 +31,7 @@ public class Muneco {
         }
     }
 
-    public void mostrar() {
+    public void mostrarMuneco() {
         System.out.println(" -------");
         System.out.print  ("  |   ");
         if (cabeza) System.out.println(" O");
@@ -64,7 +64,7 @@ public class Muneco {
         System.out.println("  |");
     }
 
-    public boolean estaCompleto() {
+    public boolean munecoEstaCompleto() {
         return cabeza && torso && brazoIzquierdo && brazoDerecho && piernaIzquierda && piernaDerecha;
     }
 }
