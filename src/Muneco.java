@@ -12,9 +12,7 @@ public class Muneco {
         brazoDerecho = false;
         brazoIzquierdo = false;
         piernaDerecha = false;
-        piernaIzquierda = false;
-    }
-
+        piernaIzquierda = false;}
     public void agregarPartesAlMuneco() {
         if (!cabeza) {
             cabeza = true;
@@ -28,15 +26,12 @@ public class Muneco {
             piernaIzquierda = true;
         } else if (!piernaDerecha) {
             piernaDerecha = true;
-        }
-    }
-
+        }}
     public void mostrarMuneco() {
         System.out.println(" -------");
         System.out.print  ("  |   ");
         if (cabeza) System.out.println(" O");
         else System.out.println();
-
         System.out.print("  |   ");
         if (brazoIzquierdo && brazoDerecho && torso) {
             System.out.println("/|\\");
@@ -49,7 +44,6 @@ public class Muneco {
         } else {
             System.out.println();
         }
-
         System.out.print("  |   ");
         if (piernaIzquierda && piernaDerecha) {
             System.out.println("/ \\");
@@ -60,10 +54,7 @@ public class Muneco {
         } else {
             System.out.println();
         }
-
-        System.out.println("  |");
-    }
-
+        System.out.println("  |");}
     public boolean munecoEstaCompleto() {
         return cabeza && torso && brazoIzquierdo && brazoDerecho && piernaIzquierda && piernaDerecha;
     }
